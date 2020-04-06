@@ -1,18 +1,21 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should render ExpenseList with expenses 1`] = `
+exports[`should render items of the ExpenseList with expenses 1`] = `
 <div>
   <Link
-    to="/edit/undefined"
+    to="/edit/2"
   >
     <h2>
        
+      phone
        
     </h2>
   </Link>
   <p>
      
+    45000
      - 
+    0
      
   </p>
 </div>
