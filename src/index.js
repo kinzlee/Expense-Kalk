@@ -6,6 +6,7 @@ import configureStore from './store/storeConfiguration';
 import {addExpenses} from './actions/expenses';
 import {setFilterText} from './actions/filters';
 import visibleSelector from './selectors/expenses';
+import 'react-dates/lib/css/_datepicker.css';
 import './styles/style.scss';
 import 'normalize.css/normalize.css';
 

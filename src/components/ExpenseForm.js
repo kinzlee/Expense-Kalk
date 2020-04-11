@@ -2,7 +2,6 @@ import React from 'react';
 import moment from 'moment';
 import { SingleDatePicker } from 'react-dates';
 import 'react-dates/initialize';
-import 'react-dates/lib/css/_datepicker.css';
 
 
 
@@ -19,7 +18,7 @@ export default class ExpenseForm extends React.Component {
         };
     }
     descriptionChange = (elt) => {
-        const description = elt.target.value;
+        const description = elt.target.value; 
         this.setState(() => ({description}));
     };
     messageNoteChange = (elt) => {
@@ -28,7 +27,7 @@ export default class ExpenseForm extends React.Component {
     };
     amountChange =(elt) => {
         const amount = elt.target.value;
-        if(!amount || amount.match(/^\d{1,}(\.\d{0, 2})?$/)) {
+        if(!amount || amount.match(/^\d{1, }(\.\d{0, 2})?$/)) {
             this.setState(() => ({amount}));
         }
     };
