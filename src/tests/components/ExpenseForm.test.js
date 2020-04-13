@@ -1,5 +1,7 @@
 import React from 'react';
 import {shallow} from 'enzyme';
+import moment from 'moment';
+import { SingleDatePicker } from 'react-dates';
 import ExpenseForm from '../../components/ExpenseForm';
 import expenses from '../fixture/expenses';
 
@@ -41,23 +43,23 @@ test('should set messageNote on textarea change', () => {
     expect(wrapper.state('messageNote')).toBe(value);
 });
 
-// test('should set amount if valid input', () => {
-//     const value = 25.50;
-//     const wrapper = shallow(<ExpenseForm />);
-//     wrapper.find('input').at(1).simulate('change', {
-//         target: { value }
-//     });
-//     expect(wrapper.state('amount')).toBe(value);
-// });
+test('should set amount if valid input', () => {
+    const value = (22.5).toString(); 
+    const wrapper = shallow(<ExpenseForm />);
+    wrapper.find('input').at(1).simulate('change', {
+        target: {value}
+    });
+    expect(wrapper.state('amount')).toBe(value);
+});
 
-// test('should  not set amount if invalid input', () => {
-//     const value = 29.350;
-//     const wrapper = shallow(<ExpenseForm />);
-//     wrapper.find('input').at(1).simulate('change', {
-//         target: { value }
-//     });
-//     expect(wrapper.state('amount')).toBe('');
-// });
+test('should  not set amount if invalid input', () => {
+    const value = (29.355).toString(); 
+    const wrapper = shallow(<ExpenseForm />);
+    wrapper.find('input').at(1).simulate('change', {
+        target: { value }
+    });
+    expect(wrapper.state('amount')).toBe('');
+});
 
 
 test('should call onSubmit prop for valid form submission', () =>{
@@ -74,6 +76,20 @@ test('should call onSubmit prop for valid form submission', () =>{
         createdAt: expenses[0].createdAt
     });  
 });
+
+test('should set new date on date change', () => {
+    const currentTime = moment();
+    const wrapper = shallow(<ExpenseForm />);
+    wrapper.find(SingleDatePicker).prop('onDateChange')(currentTime);
+    expect(wrapper.state('createdAt')).toBe(currentTime); 
+}); 
+
+test('should change calendar focus on change', () => {
+    const focused = true;
+    const wrapper = shallow(<ExpenseForm />);
+    wrapper.find(SingleDatePicker).prop('onFocusChange')({focused});
+    expect(wrapper.state('calendarFocused')).toBe(focused); 
+})
 
 
 

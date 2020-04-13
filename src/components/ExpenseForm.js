@@ -27,7 +27,7 @@ export default class ExpenseForm extends React.Component {
     };
     amountChange =(elt) => {
         const amount = elt.target.value;
-        if(!amount || amount.match(/^\d{1, }(\.\d{0, 2})?$/)) {
+        if(!amount || amount.match(/^\d{1,}(\.\d{0,2})?$/)) {
             this.setState(() => ({amount}));
         }
     };
