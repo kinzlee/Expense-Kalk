@@ -16,7 +16,6 @@ export const ExpensesList = (props) => (
         }
     </div> 
 );
-
 const mapStateToProps = (state) => {
     return {
         expenses: ExpenseSelector(state.expenses, state.filter)

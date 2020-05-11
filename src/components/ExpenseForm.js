@@ -53,8 +53,7 @@ export default class ExpenseForm extends React.Component {
             })
         }
     };
-    render() {
-        
+    render() { 
         return (
             <div>
                 {this.state.error && <p>{this.state.error}</p>}
